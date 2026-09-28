@@ -23,8 +23,6 @@ export default function ProductForm({product} : Props) {
             <Head title="Products" />
             <Form {...action}> 
                 {({ errors, processing }) => (
-
-
                     <div className="absolute inset-0 flex flex-col items-center gap-4 rounded-xl p-4 md:p-6">
                         <div className="flex w-1/2 justify-between gap-4">
                             <h1 className="text-2xl">

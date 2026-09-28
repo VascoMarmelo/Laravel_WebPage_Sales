@@ -26,6 +26,7 @@ class FormProductRequest extends FormRequest
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'type' => 'required|string|max:50',
+            'image' => 'string|max:512',
             'price' => 'required|numeric|min:0', 
         ];
     }

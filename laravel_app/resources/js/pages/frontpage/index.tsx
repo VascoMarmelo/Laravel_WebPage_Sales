@@ -5,10 +5,11 @@ import { CardImage } from '../shadcn_blocks/cardimage';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import { Product } from '@/types';
+import ChatCard from '@/chatbot/chatcard';
 
 type Props = {
     collection: Product;
-    search: string | null
+    //search: string | null
 }
 
 export default function FrontPage({collection} : Props) {
@@ -17,15 +18,21 @@ export default function FrontPage({collection} : Props) {
 
     let carrouselSize = 10;
 
+    let productData = collection.collection;
+
+    console.log(collection);
+
     return (
         <>
             <div className="flex flex-col w-full h-full justify-center dark:bg-black dark:text-[#EDEDEC]">
                 <div className="flex items-center gap-4 xs:max-h-full xl:max-h-96 overflow-hidden">
-                    <img className="h-full
-                        max-w-2/3
+                    <img className="
+                        h-64
+                        w-2/3
                         object-cover
                         [mask-image:radial-gradient(100%_100%_at_left,black_40%,transparent_100%),linear-gradient(to_bottom,black_75%,transparent_100%)]
                         [mask-composite:intersect]
+                        xl:h-96
                     " src="/storage/images/banner.jpg" alt="Banner" />
                     <div className="font-medium">
                         <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
@@ -44,13 +51,13 @@ export default function FrontPage({collection} : Props) {
                         className="w-full py-1"
                     >
                         <CarouselContent>
-                            {Array.from({ length: carrouselSize }).map((_, index) => (
+                            {productData['Used Laptop'].data.map((elem, index) => (
                                 <CarouselItem
                                     key={index}
                                     className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-1/8"
                                 >
-                                    <div className="p-1">
-                                        <CardImage />
+                                    <div className="p-1 h-full">
+                                        <CardImage product={elem}/>
                                     </div>
                                 </CarouselItem>
                             ))}
@@ -70,13 +77,13 @@ export default function FrontPage({collection} : Props) {
                         className="w-full py-1"
                     >
                         <CarouselContent>
-                            {Array.from({ length: carrouselSize }).map((_, index) => (
+                            {productData['Used Desktop'].data.map((elem, index) => (
                                 <CarouselItem
                                     key={index}
                                     className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-1/8"
                                 >
-                                    <div className="p-1">
-                                        <CardImage />
+                                    <div className="p-1 h-full">
+                                        <CardImage product={elem}/>
                                     </div>
                                 </CarouselItem>
                             ))}
@@ -88,6 +95,7 @@ export default function FrontPage({collection} : Props) {
                     <Button className='flex m-auto mt-4'>View More</Button>
                 </div>
             </div>
+            <ChatCard/>
         </>
     );
 }

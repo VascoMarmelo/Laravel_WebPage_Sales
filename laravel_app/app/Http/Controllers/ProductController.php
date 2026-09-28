@@ -28,6 +28,23 @@ class ProductController extends Controller
         ]);
     }
 
+    public function index_public(Request $request){
+
+        $used_laptop = Product::query();
+        $used_desktop = Product::query();
+
+        return Inertia::render('welcome', [
+            'collection' => [
+                'Used Laptop' => ProductResource::collection(
+                    $used_laptop->orderBy('id', 'DESC')->where('type', 'Used Laptop')->paginate(10)
+                ),
+                'Used Desktop' => ProductResource::collection(
+                    $used_desktop->orderBy('id', 'DESC')->where('type', 'Used Desktop')->paginate(10)
+                ),
+            ]
+        ]);
+    }
+
     public function featured(){
         $laptops = Product::where('type', 'Used Laptop')
             ->orderBy('id', 'DESC')
@@ -70,5 +87,18 @@ class ProductController extends Controller
     public function destroy(Product $product){
         $product->delete();
         return to_route('products.index')->with('message','Product Deleted sucessfully');
+    }
+
+    public function show($id){
+
+        $product = Product::where('id', $id)->first();
+
+        if (!$product) {
+            abort(404);
+        }
+
+        return Inertia::render('welcome', [
+            'product' => new ProductResource($product),
+        ]);
     }
 }

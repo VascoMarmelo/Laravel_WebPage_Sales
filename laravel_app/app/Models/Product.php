@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 
-#[Fillable(['name', 'description', 'type', 'price'])]
+#[Fillable(['name', 'description', 'type', 'image', 'price'])]
 class Product extends Model
 {
     //
+    use HasFactory;
 }
