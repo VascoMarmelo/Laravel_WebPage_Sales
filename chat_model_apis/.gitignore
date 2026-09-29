@@ -1,6 +1,4 @@
 __pycache__/
-cache/
-venvs/
+.cache/
+.venvs/
 .vscode/
-model/*
-!model/.gitkeep
