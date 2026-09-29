@@ -14,7 +14,7 @@ export default function NavBar() {
                         <div className='w-8 h-8 bg-amber-100'>
                         </div>  
                         <h1 className='text-3xl items-center font-sans dark:text-[#EDEDEC]'>
-                            Timu
+                            Enterprise A
                         </h1>
                     </div> 
                     <div>              

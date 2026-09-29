@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from llama_cpp import Llama
+import os
 
 class ModelRequest(BaseModel):
     user_id: str
@@ -26,8 +27,24 @@ user_list = []
 
 app = FastAPI()
 
+models = os.listdir("./model")
+
+model_name = os.getenv("MODEL_NAME")
+
+if model_name is None:
+    raise RuntimeError(
+        f"MODEL_NAME not set. Available models: {models}"
+    )
+
+if model_name not in models:
+    raise RuntimeError(
+        f"Unknown model '{model_name}'. Available models: {models}"
+    )
+
+model_path = f"./model/{model_name}/{model_name}.gguf"
+
 llm = Llama(
-    model_path="model/qwen2.5-coder-7b-instruct-q5_k_m.gguf",
+    model_path=model_path,
     n_ctx=8192,
     n_gpu_layers=-1,
     verbose=True,
