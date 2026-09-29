@@ -1,7 +1,7 @@
 # Laravel_WebPage_Sales
 Laravel/React Project for developing a Sales WebPage Template, with ChatBot
 
-<img width="1897" height="942" alt="image" src="https://github.com/user-attachments/assets/a7e3a9d8-e7bd-4d12-b44b-f65af0405bae" />
+<img width="1897" height="942" alt="image" src="https://github.com/user-attachments/assets/7ab3dcc8-e870-4193-ade3-8e5d82771626" />
 
 ## ChatBot
 
