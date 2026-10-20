@@ -23,7 +23,7 @@ export default function ProductPage({productProp} : Props) {
 
     if (Array.isArray(product.data)){  
         return (
-            <div className='m-10'>
+            <div className='m-10 grow'>
                 <h2 className='text-4xl font-bold px-1 mb-1'>{product.data[0].type}</h2>
                 <div className='m-10 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4'>
                     {product.data.map((elem, index) => (
