@@ -67,41 +67,43 @@ export default function ChatCard() {
     }
 
     return (
-        <Card className="fixed bottom-4 right-4 w-96">
-            <CardHeader>
-                <div className="flex justify-between align-middle items-center">
-                    <CardTitle className="">ChatBot</CardTitle>
-                    <Button className="bg-transparent border border-transparent hover:bg-transparent hover:border hover:border-gray-300 justify-center" onClick={() => setDisabled(true)}><SlClose className="text-white "/></Button>
-                </div>
-                <Card className="overflow-scroll h-99%">
-                    {prompts.map((p, index : number) => {
-                        return (
-                            <div>
-                                {index % 2 == 0 ? (
-                                    <div className="px-3">
-                                        {p}
-                                    </div>
-                                ) : (
-                                    <div className="px-3 text-right">
-                                        <i>{p}</i>
-                                    </div>
-                                )}
-                            </div>
-                        )
-                    })} 
-                </Card>
-                <Input 
-                    id="promptText" 
-                    name="promptText"
-                    type="promptText"
-                    value={promptText} 
-                    placeholder="Write here to talk"   
-                    onChange={(event) => setPromptText(event.target.value)}             
-                />
-            </CardHeader>
-            <CardFooter>
-                <Button className="w-full" onClick={sendPrompt}>Send</Button>
-            </CardFooter>
-        </Card>
+        <div>
+            <Card className="fixed bottom-4 right-4 w-96 hidden md:block">
+                <CardHeader>
+                    <div className="flex justify-between align-middle items-center">
+                        <CardTitle className="">ChatBot</CardTitle>
+                        <Button className="bg-transparent border border-transparent hover:bg-transparent hover:border hover:border-gray-300 justify-center" onClick={() => setDisabled(true)}><SlClose className="text-white "/></Button>
+                    </div>
+                    <Card className="overflow-scroll">
+                        {prompts.map((p, index : number) => {
+                            return (
+                                <div>
+                                    {index % 2 == 0 ? (
+                                        <div className="px-3">
+                                            {p}
+                                        </div>
+                                    ) : (
+                                        <div className="px-3 text-right">
+                                            <i>{p}</i>
+                                        </div>
+                                    )}
+                                </div>
+                            )
+                        })} 
+                    </Card>
+                    <Input 
+                        id="promptText" 
+                        name="promptText"
+                        type="promptText"
+                        value={promptText} 
+                        placeholder="Write here to talk"   
+                        onChange={(event) => setPromptText(event.target.value)}             
+                    />
+                    <Button className="w-full my-1" onClick={sendPrompt}>Send</Button>
+                </CardHeader>
+            </Card>
+           
+        </div>
+        
     );
 }

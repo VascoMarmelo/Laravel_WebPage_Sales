@@ -4,11 +4,11 @@ import { register } from '@/routes';
 
 export default function Footer() {
     return (
-        <footer className="mt-12 w-full border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-black">
+        <footer className="w-full border-t border-gray-200 bg-white dark:border-gray-800 dark:bg-black">
             <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 md:flex-row md:items-center md:justify-between">
                 <div>
                     <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        Timu
+                        Enterprise A
                     </h2>
                     <p className="mt-2 max-w-sm text-sm text-gray-500 dark:text-gray-400">
                         Built for power users. Computacional fast, simple, and made to get
@@ -51,7 +51,7 @@ export default function Footer() {
             <div className="border-t border-gray-200 dark:border-gray-800">
                 <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between dark:text-gray-400">
                     <p>
-                        © {new Date().getFullYear()} YourBrand. All rights
+                        © {new Date().getFullYear()} Enterprise A. All rights
                         reserved.
                     </p>
 
