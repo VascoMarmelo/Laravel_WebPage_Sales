@@ -24,8 +24,8 @@ export default function FrontPage({collection} : Props) {
 
     return (
         <>
-            <div className="flex flex-col grow w-full h-full justify-center dark:bg-black dark:text-[#EDEDEC]">
-                <div className="flex items-center gap-4 xs:max-h-full xl:max-h-96 overflow-hidden">
+            <div className="flex flex-col grow w-full dark:bg-black dark:text-[#EDEDEC]">
+                <div className="flex items-center gap-4 overflow-hidden">
                     <img className="
                         h-64
                         w-2/3
