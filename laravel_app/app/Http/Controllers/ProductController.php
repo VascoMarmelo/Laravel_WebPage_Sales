@@ -10,6 +10,8 @@ use Inertia\Inertia;
 use App\Http\Requests\FormProductRequest;
 use App\Http\Resources\ProductResource;
 
+use Illuminate\Support\Facades\Log;
+
 class ProductController extends Controller
 {
     public function index(Request $request){
@@ -90,6 +92,7 @@ class ProductController extends Controller
         return to_route('products.index')->with('message','Product Deleted sucessfully');
     }
 
+    # Por only one product
     public function show($id){
 
         $product = Product::where('id', $id)->first();
@@ -100,6 +103,33 @@ class ProductController extends Controller
 
         return Inertia::render('welcome', [
             'product' => new ProductResource($product),
+        ]);
+    }
+
+    # For product list page
+    public function show_by_type($type){
+
+        $choosen_type = '';
+
+        switch($type){
+            case 'usedLaptop': $choosen_type = 'Used Laptop'; break;
+            case 'usedDesktop': $choosen_type = 'Used Desktop'; break;
+        };
+
+        # Invalid parameter
+        if ($choosen_type == '') {
+            abort(400);
+        }
+
+        #$products = Product::where('type', $choosen_type)->get();
+        $products = Product::where('type', $choosen_type)->paginate(20);
+
+        if (!$products) {
+            abort(404);
+        }
+
+        return Inertia::render('welcome', [
+            'product' => ProductResource::collection($products)
         ]);
     }
 }

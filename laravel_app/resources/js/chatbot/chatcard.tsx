@@ -48,8 +48,6 @@ export default function ChatCard() {
 
             const data = await response.json();
 
-            console.log(data);
-
             setPrompt((previous) => [
                 ...previous,
                 promptText,

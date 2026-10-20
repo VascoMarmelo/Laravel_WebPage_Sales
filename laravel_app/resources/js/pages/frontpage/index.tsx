@@ -20,11 +20,9 @@ export default function FrontPage({collection} : Props) {
 
     let productData = collection.collection;
 
-    console.log(collection);
-
     return (
         <>
-            <div className="flex flex-col grow w-full dark:bg-black dark:text-[#EDEDEC]">
+            <div className="flex flex-col grow w-full">
                 <div className="flex items-center gap-4 overflow-hidden">
                     <img className="
                         h-64
@@ -66,7 +64,7 @@ export default function FrontPage({collection} : Props) {
                         <CarouselPrevious className="hidden lg:flex left-2" />
                         <CarouselNext className="hidden lg:flex right-2" />
                     </Carousel>
-                    <Button className='flex m-auto mt-4'>View More</Button>
+                    <Button className='flex m-auto mt-4'><Link href="/product/type/usedLaptop">View More</Link></Button>
                 </div>
                 <div className="relative w-full p-4 mt-5">
                     <h4 className='text-xl font-bold px-1 dark:border-gray-800 border-b mb-1'>Used Desktops</h4>
@@ -92,7 +90,7 @@ export default function FrontPage({collection} : Props) {
                         <CarouselPrevious className="hidden lg:flex left-2" />
                         <CarouselNext className="hidden lg:flex right-2" />
                     </Carousel>
-                    <Button className='flex m-auto mt-4'>View More</Button>
+                    <Button className='flex m-auto mt-4'><Link href="/product/type/usedDesktop">View More</Link></Button>
                 </div>
             </div>
             <ChatCard/>

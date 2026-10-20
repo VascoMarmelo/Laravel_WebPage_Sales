@@ -18,16 +18,17 @@ export default function Welcome(collection : Product) {
 
     const isHome = url === '/';
     const isProduct = /^\/product\/(\d+)$/.test(url);
+    const isProductType = /^\/product\/type\/[^/]+$/.test(url);
 
     return (
         <>
             <Head title="Welcome" />
-            <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a]">
+            <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] text-[#1b1b18] dark:bg-[#0a0a0a] dark:text-[#EDEDEC]">
                 <NavBar/>
                 {isHome && (
                     <FrontPage collection={collection} />
                 )}
-                {isProduct && (
+                {(isProduct || isProductType) && (
                     <ProductPage productProp={collection} />
                 )}
                 <Footer/>            

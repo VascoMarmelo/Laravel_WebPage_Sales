@@ -18,9 +18,6 @@ type CardImageProps = {
 
 export function CardImage({product} : CardImageProps) {
 
-  console.log("product.id:", product.id)
-  console.log("href:", `/product/${product.id}`)
-
   return (
     <Card className="relative mx-auto w-full h-full max-w-sm pt-0">
       <img

@@ -14,7 +14,6 @@ type Props = {
 }
 
 export default function ProductIndex({collection, search}: Props) {
-    console.log('collection', collection)
 
     const onDelete = (product: any) => {
         if (window.confirm("Are you sure you want to delete this product ?")){
