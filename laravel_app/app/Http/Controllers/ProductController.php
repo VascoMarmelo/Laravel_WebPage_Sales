@@ -28,6 +28,7 @@ class ProductController extends Controller
         ]);
     }
 
+    # Index used for main_page frontend
     public function index_public(Request $request){
 
         $used_laptop = Product::query();
